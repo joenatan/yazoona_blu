@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+
+  app:
+    build: .
+    #depends_on:
+    #  - db
+
+  worker:
+    build: .
+    depends_on:
+      # - db
+      - redis
+
+  heartbeat:
+    build: .
+    depends_on:
+      #- db
+      - redis
+
+  db:
+    image: postgres:12-alpine
+
+  redis:
+    image: bitnami/redis:latest
