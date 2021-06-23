@@ -1,11 +1,16 @@
 from django.db import models
 
+PRODUCT_STATUS_TYPES = (
+    ('draft', 'Draft'),
+    ('publish', 'Publish'),
+)
+
 
 class Product(models.Model):
-    id = models.IntegerField(primary_key=True)
+    woo_id = models.IntegerField()
     name = models.CharField(max_length=256)
     sku = models.CharField(max_length=256, blank=True)
-    status = models.CharField(max_length=256, default='draft')
+    status = models.CharField(max_length=256, default='draft', choices=PRODUCT_STATUS_TYPES)
 
     regular_price = models.FloatField(default=0.0)
     sale_price = models.FloatField(default=0.0)
