@@ -12,6 +12,8 @@ class Product(models.Model):
     sku = models.CharField(max_length=256, blank=True)
     status = models.CharField(max_length=256, default='draft', choices=PRODUCT_STATUS_TYPES)
 
+    description = models.TextField(blank=True)
+
     regular_price = models.FloatField(default=0.0)
     sale_price = models.FloatField(default=0.0)
 

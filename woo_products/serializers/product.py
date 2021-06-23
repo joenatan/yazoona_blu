@@ -9,7 +9,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['name', 'sku', 'status', 'regular_price', 'sale_price', 'stock_quantity']
+        fields = ['name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity']
 
     def get_regular_price(self, obj):
         return str(obj.regular_price)
@@ -26,7 +26,7 @@ class ProductImportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['woo_id', 'name', 'sku', 'regular_price', 'sale_price', 'stock_quantity']
+        fields = ['woo_id', 'name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity']
 
     def get_regular_price(self, obj):
         regular_price = obj['regular_price']

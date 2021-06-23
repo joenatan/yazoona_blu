@@ -1,0 +1,48 @@
+GET https://www.yazoona.com/wp-json/wc/v3/products/3115
+Authorization: Basic ck_5cd5c8e9869c75f0f3cc8c8fde5c5c702f8b5dd0 cs_dc718732dd2dac94a42e0499877fcbf8204afa67
+
+###
+GET https://www.yazoona.com/wp-json/wc/v3/orders
+Authorization: Basic ck_5cd5c8e9869c75f0f3cc8c8fde5c5c702f8b5dd0 cs_dc718732dd2dac94a42e0499877fcbf8204afa67
+
+###
+
+GET https://www.yazoona.ch/wp-json/wp/v2/media
+
+
+###
+PUT https://www.yazoona.ch/wp-json/wc/v3/products/29
+Authorization: Basic ck_5cd5c8e9869c75f0f3cc8c8fde5c5c702f8b5dd0 cs_dc718732dd2dac94a42e0499877fcbf8204afa67
+Content-Type: application/json
+
+{"images": [
+    {
+      "src": "https://drive.google.com/uc?id=1EN1M_Lm6OfKsYI_8P10LRrpzjewXRXKF"
+    }
+]}
+
+###
+GET https://dev.www.yazoona.ch/wp-json/wc/v2/products
+Authorization: Basic ck_5cd5c8e9869c75f0f3cc8c8fde5c5c702f8b5dd0 cs_dc718732dd2dac94a42e0499877fcbf8204afa67
+Content-Type: application/json
+
+
+###
+GET https://www.yazoona.ch/wp-json/filebird/public/v1/folders
+Authorization: Bearer OH7SL82zMvUnQWSSoWcJSvsjvaeWUIHbdxDCedoq
+
+###
+GET https://www.yazoona.ch/wp-json/filebird/public/v1/attachment-id/?folder_id=6
+Authorization: Bearer OH7SL82zMvUnQWSSoWcJSvsjvaeWUIHbdxDCedoq
+
+Eine Stadtverwaltung möchte alle ressortübergreifenden Projekte in einer Datenbank erfassen.
+
+Anforderungsdefinition:
+Die Datenbank soll Auskunft geben, welche Projekte aktuell laufen beziehungsweise bereits abgeschlossen sind, welcher Mitarbeiter das Projekt leitet beziehungsweise zuletzt geleitet hat und welche weiteren Mitarbeiter beteiligt sind beziehungsweise waren.
+Jedem Projekt muss stets ein Projektleiter zugewiesen sein. Für alle beteiligten Mitarbeiter muss außerdem das Ressort angegeben sein, in dem sie arbeiten.
+
+Daten:
+Für jedes Projekt sollen die Projektbezeichnung, eine Kurzbeschreibung, das Start- und das Abschlussdatum, der Projektleiter sowie alle weiteren Projektmitarbeiter verfügbar sein.
+Für jeden Mitarbeiter sollen Personalnummer, Vor- und Nachname sowie das Ressort, in dem er arbeitet, verfügbar sein.
+Für jedes Ressort soll dessen Bezeichnung gespeichert werden können.
+In der Datenbank sollen alle Ressorts der Stadt verfügbar sein, auch wenn ein Ressort bisher noch keinen Mitarbeiter für ein solches Projekt abgestellt hat.
