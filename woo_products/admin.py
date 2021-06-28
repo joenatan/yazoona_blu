@@ -1,8 +1,11 @@
+from ajax_select import make_ajax_form
+from ajax_select.admin import AjaxSelectAdmin
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.fields import Field
 
+from .forms import ProductForm
 from .models import Product, ProductContact
 
 
@@ -32,6 +35,7 @@ class ProductAdmin(BookAdmin):
     list_display = ['sku', 'name', 'stock_quantity', 'suppliers']
     list_filter = ['status']
     inlines = [ProductContactInline]
+    form = ProductForm
 
     def suppliers(self, obj):
         suppliers = obj.suppliers.select_related().values('purchase_sku', 'contact__name')

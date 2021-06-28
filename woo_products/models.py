@@ -20,6 +20,8 @@ class Product(models.Model):
 
     stock_quantity = models.IntegerField(default=0)
 
+    images = models.ManyToManyField('woo_media.Media', related_name='products')
+
     def __str__(self):
         return self.name
 

@@ -39,9 +39,12 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'import_export',
+    'django_select2',
+    'ajax_select',
     'app_contact',
     'app_sale',
-    'woo_products'
+    'woo_products',
+    'woo_media'
 ]
 
 MIDDLEWARE = [

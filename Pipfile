@@ -9,6 +9,8 @@ woocommerce = "*"
 djangorestframework = "*"
 django-admin-json-editor = "*"
 django-import-export = "*"
+django-select2 = "*"
+django-ajax-selects = "*"
 
 [dev-packages]
 
