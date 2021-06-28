@@ -13,6 +13,9 @@ class MediaAutocompleteWidget(BaseAutocompleteSelect):
 
 
 class ProductForm(forms.ModelForm):
+    brand = forms.ModelChoiceField(Product.objects.all().values('brand'))
+
+
     class Meta:
         model = Product
         fields = "__all__"
