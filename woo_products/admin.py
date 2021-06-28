@@ -33,7 +33,7 @@ class ProductContactInline(admin.TabularInline):
 class ProductAdmin(BookAdmin):
     search_fields = ['name', 'sku']
     list_display = ['sku', 'name', 'stock_quantity', 'suppliers']
-    list_filter = ['status']
+    list_filter = ['status', 'collection']
     inlines = [ProductContactInline]
     form = ProductForm
 

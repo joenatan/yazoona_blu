@@ -22,6 +22,9 @@ class Product(models.Model):
 
     images = models.ManyToManyField('woo_media.Media', related_name='products')
 
+    brand = models.CharField(max_length=256)
+    collection = models.CharField(max_length=256)
+
     def __str__(self):
         return self.name
 

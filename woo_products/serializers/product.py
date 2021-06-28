@@ -50,10 +50,12 @@ class ProductImportSerializer(serializers.ModelSerializer):
     regular_price = serializers.SerializerMethodField(read_only=True)
     sale_price = serializers.SerializerMethodField(read_only=True)
     stock_quantity = serializers.SerializerMethodField(read_only=True)
+    brand = serializers.SerializerMethodField(read_only=True)
+    collection = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Product
-        fields = ['woo_id', 'name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity']
+        fields = ['woo_id', 'name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity', 'brand', 'collection']
 
     def get_regular_price(self, obj):
         regular_price = obj['regular_price']
@@ -72,3 +74,19 @@ class ProductImportSerializer(serializers.ModelSerializer):
         if stock_quantity is None:
             stock_quantity = 0
         return stock_quantity
+
+    def get_brand(self, obj):
+        attributes = obj.get('attributes', [])
+        if len(attributes) > 0:
+            t = [d for d in attributes if d['id'] == 6]
+            if len(t) > 0:
+                return t[0]['options'][0]
+        return ''
+
+    def get_collection(self, obj):
+        attributes = obj.get('attributes', [])
+        if len(attributes) > 0:
+            t = [d for d in attributes if d['id'] == 5]
+            if len(t) > 0:
+                return t[0]['options'][0]
+        return ''
