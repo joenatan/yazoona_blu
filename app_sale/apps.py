@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MakemigrationsConfig(AppConfig):
+class AppSaleConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'makemigrations'
+    name = 'app_sale'

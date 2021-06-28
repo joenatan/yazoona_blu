@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 woocommerce = "*"
 djangorestframework = "*"
+django-admin-json-editor = "*"
+django-import-export = "*"
 
 [dev-packages]
 

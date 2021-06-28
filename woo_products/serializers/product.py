@@ -6,16 +6,23 @@ from woo_products.models import Product
 class ProductSerializer(serializers.ModelSerializer):
     regular_price = serializers.SerializerMethodField()
     sale_price = serializers.SerializerMethodField()
+    acf = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
-        fields = ['name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity']
+        fields = ['name', 'sku', 'status', 'description', 'regular_price', 'sale_price', 'stock_quantity', 'acf']
 
     def get_regular_price(self, obj):
         return str(obj.regular_price)
 
     def get_sale_price(self, obj):
-        return str(obj.regular_price)
+        if obj.sale_price == 0.0:
+            return ""
+        return str(obj.sale_price)
+
+    def get_acf(self, obj):
+        variant_title = obj.name.split('-')[-1]
+        return {'variant_title': variant_title.strip()}
 
 
 class ProductImportSerializer(serializers.ModelSerializer):

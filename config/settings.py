@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'import_export',
     'app_contact',
+    'app_sale',
     'woo_products'
 ]
 

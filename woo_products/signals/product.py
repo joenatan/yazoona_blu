@@ -15,4 +15,5 @@ def on_product_saved(sender, instance, created, **kwargs):
 
     if not created:
         request = woo_client.put("products/%s" % instance.woo_id, data)
-        print(request.json())
+        print(request.status_code)
+        #print(request.json())

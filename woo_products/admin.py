@@ -1,6 +1,24 @@
 from django.contrib import admin
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+from import_export.fields import Field
 
 from .models import Product, ProductContact
+
+
+class ProductResource(resources.ModelResource):
+    supplier_sku = Field()
+
+    class Meta:
+        model = Product
+        fields = ['name', 'supplier_sku', 'stock_quantity']
+
+    def dehydrate_supplier_sku(self, obj):
+        return obj.supplier_sku
+
+
+class BookAdmin(ImportExportModelAdmin):
+    resource_class = ProductResource
 
 
 class ProductContactInline(admin.TabularInline):
@@ -9,7 +27,7 @@ class ProductContactInline(admin.TabularInline):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(BookAdmin):
     search_fields = ['name', 'sku']
     list_display = ['sku', 'name', 'stock_quantity', 'suppliers']
     list_filter = ['status']

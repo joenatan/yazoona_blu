@@ -23,6 +23,13 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def supplier_sku(self):
+        supplier = self.suppliers.select_related().first()
+        if supplier:
+            return supplier.purchase_sku
+        return ''
+
 
 class ProductContact(models.Model):
     contact = models.ForeignKey('app_contact.Contact', on_delete=models.CASCADE)
