@@ -24,6 +24,7 @@ class Product(models.Model):
 
     brand = models.CharField(max_length=256)
     collection = models.CharField(max_length=256)
+    family = models.CharField(max_length=256)
 
     def __str__(self):
         return self.name
